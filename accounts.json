@@ -1,0 +1,21 @@
+[
+  {
+    "name": "KaranjaRacer",
+    "cookies": [
+      {"name": "c_user", "value": "PASTE_C_USER_HERE", "domain": ".facebook.com"},
+      {"name": "xs", "value": "PASTE_XS_HERE", "domain": ".facebook.com"},
+      {"name": "datr", "value": "PASTE_DATR_HERE", "domain": ".facebook.com"},
+      {"name": "sb", "value": "PASTE_SB_HERE", "domain": ".facebook.com"},
+      {"name": "fr", "value": "PASTE_FR_HERE", "domain": ".facebook.com"}
+    ]
+  },
+  {
+    "name": "MutuaDrift",
+    "email": "mutua@example.com",
+    "password": "yourpassword123"
+  },
+  {
+    "name": "WanjikuMinivan",
+    "cookies": []
+  }
+]

@@ -1,0 +1,30 @@
+# Render Blueprint for EMPIRE v13
+# Deploy to Render with one click!
+
+services:
+  - type: web
+    name: empire-v13-telegram-bot
+    runtime: docker
+    plan: free
+    region: oregon
+    branch: main
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+        description: "Telegram Bot Token from @BotFather"
+      - key: OWNER_ID
+        sync: false
+        description: "Your Telegram User ID from @userinfobot"
+      - key: GROQ_KEY
+        sync: false
+        description: "Optional: Groq API Key for AI responses"
+      - key: PORT
+        value: "3000"
+    disk:
+      name: empire-data
+      mountPath: /app/sessions
+      sizeGB: 1
+    healthCheckPath: /
+    autoDeploy: true

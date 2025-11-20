@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  empire:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: empire-v13
+    volumes:
+      - empire_sessions:/app/sessions
+      - empire_data:/app/data
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+      - OWNER_ID=${OWNER_ID}
+      - GROQ_KEY=${GROQ_KEY}
+    env_file:
+      - .env
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import os; os.path.exists('/app/data/empire.db')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  empire_sessions:
+    driver: local
+  empire_data:
+    driver: local
